@@ -43,4 +43,4 @@ services:
     volumes:
       - /home/docker/keyfile:/home/keyfile
       - /home/docker/mongo3/data:/data/db
-    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" , "load", "initiate.js"]
+    entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" , "--eval", "initiate.js"]
