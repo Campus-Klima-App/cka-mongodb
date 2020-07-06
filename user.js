@@ -9,11 +9,15 @@ admin.createUser({
         { role: "clusterAdmin", db: "admin" }
     ]
 });
+db.auth("admin","admin");
 
 cd = db.getSiblingDB("climateData");
 cd.createCollection("climateData");
 cd.climateData.insert({"Test":"Test"});
-cd.createUser({
+
+admin = db.getSiblingDB("admin");
+admin.auth("admin","admin");
+admin.createUser({
     user:"user",
     pwd: "1234",
     roles: [
