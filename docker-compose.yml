@@ -45,4 +45,3 @@ services:
       - /home/docker/mongo3/data:/data/db
       - /home/docker/cka-Mongodb/initiate.js:/home/initiate.js
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
-    command: ["mongo", "load(/home/initiate.js)"]
