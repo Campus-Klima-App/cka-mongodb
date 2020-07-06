@@ -12,6 +12,7 @@ services:
     volumes:
       - /home/docker/keyfile:/home/keyfile
       - /home/docker/mongo1/data:/data/db
+      - /home/cka-Mongodb/initiate.js:/home/initiate.js
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
   mongo2:
     depends_on:
