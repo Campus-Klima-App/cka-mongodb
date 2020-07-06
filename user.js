@@ -11,6 +11,7 @@ admin.createUser({
         { role: "clusterAdmin", db: "admin" }
     ]
 })
+
 use climateData
 db.createCollection("climateData")
 db.climateData.insert({"Test":"Test"})
