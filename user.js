@@ -20,7 +20,7 @@ cd.createUser({
     user:"user",
     pwd: "1234",
     roles: [
-        {role: "dbOwner", db: "theDatabase"}
+        {role: "dbOwner", db: "climateData"}
     ]
 })
 
