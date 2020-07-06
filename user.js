@@ -1,6 +1,4 @@
-// https://docs.mongodb.com/manual/reference/built-in-roles/
-
-admin = db.getSiblingDB("admin")
+admin = db.getSiblingDB("admin");
 admin.createUser({
     user: "admin",
     pwd: "admin",
@@ -10,18 +8,17 @@ admin.createUser({
         { role: "dbAdminAnyDatabase", db: "admin" },
         { role: "clusterAdmin", db: "admin" }
     ]
-})
+});
 
-use climateData
-db.createCollection("climateData")
-db.climateData.insert({"Test":"Test"})
-cd = db.getSiblingDB("climateData")
+cd = db.getSiblingDB("climateData");
+cd.createCollection("climateData");
+cd.climateData.insert({"Test":"Test"});
 cd.createUser({
     user:"user",
     pwd: "1234",
     roles: [
         {role: "dbOwner", db: "climateData"}
     ]
-})
+});
 
-db.auth("user","1234")
+db.auth("user","1234");
