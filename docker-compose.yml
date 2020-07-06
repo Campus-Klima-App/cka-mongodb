@@ -44,4 +44,5 @@ services:
       - /home/docker/keyfile:/home/keyfile
       - /home/docker/mongo3/data:/data/db
       - /home/docker/cka-Mongodb/initiate.js:/home/initiate.js
+      - /home/docker/cka-Mongodb/user.js:/home/user.js
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
