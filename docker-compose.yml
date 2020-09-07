@@ -10,8 +10,8 @@ services:
       - 27011:27017
     restart: always
     volumes:
-      - /home/docker/keyfile:/home/keyfile
-      - /home/docker/mongo1/data:/data/db
+      - /home/cka-mongodb/keyfile:/home/keyfile
+      - /home/cka-mongodb/mongo1/data:/data/db
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
   mongo2:
     depends_on:
@@ -25,8 +25,8 @@ services:
       - 27012:27017
     restart: always
     volumes:
-      - /home/docker/keyfile:/home/keyfile
-      - /home/docker/mongo2/data:/data/db
+      - /home/cka-mongodb/keyfile:/home/keyfile
+      - /home/cka-mongodb/mongo2/data:/data/db
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
   mongo3:
     depends_on:
@@ -41,8 +41,8 @@ services:
       - 27013:27017
     restart: always
     volumes:
-      - /home/docker/keyfile:/home/keyfile
-      - /home/docker/mongo3/data:/data/db
-      - /home/docker/cka-Mongodb/initiate.js:/home/initiate.js
-      - /home/docker/cka-Mongodb/user.js:/home/user.js
+      - /home/cka-mongodb/keyfile:/home/keyfile
+      - /home/cka-mongodb/mongo3/data:/data/db
+      - /home/cka-mongodb/cka-Mongodb/initiate.js:/home/initiate.js
+      - /home/cka-mongodb/cka-Mongodb/user.js:/home/user.js
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
