@@ -3,7 +3,7 @@ services:
   cka-mongodb1:
     hostname: cka-mongodb1
     container_name: cka-mongodb1
-    image: mongo:4.2.8-bionic
+    image: cka-mongodb:1.1
     expose:
       - 27017
     ports:
@@ -18,7 +18,7 @@ services:
       - cka-mongodb1
     hostname: cka-mongodb2
     container_name: cka-mongodb2
-    image: mongo:4.2.8-bionic
+    image: cka-mongodb:1.1
     expose:
       - 27017
     ports:
@@ -34,7 +34,7 @@ services:
       - cka-mongodb2
     hostname: cka-mongodb3
     container_name: cka-mongodb3
-    image: mongo:4.2.8-bionic
+    image: cka-mongodb:1.1
     expose:
       - 27017
     ports:
@@ -44,5 +44,4 @@ services:
       - /home/cka-mongodb/keyfile:/home/keyfile
       - /home/cka-mongodb/mongo3/data:/data/db
       - /home/cka-mongodb/cka-Mongodb/initiate.js:/home/initiate.js
-      - /home/cka-mongodb/cka-Mongodb/user.js:/home/user.js
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
