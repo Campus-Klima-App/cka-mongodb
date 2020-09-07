@@ -1,6 +1,6 @@
 version: "3"
 services:
-  mongo1:
+  cka-mongodb1:
     hostname: cka-mongodb1
     container_name: cka-mongodb1
     image: cka-mongodb:1.1
@@ -13,7 +13,7 @@ services:
       - /home/cka-mongodb/keyfile:/home/keyfile
       - /home/cka-mongodb/mongo1/data:/data/db
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
-  mongo2:
+  cka-mongodb2:
     depends_on:
       - cka-mongodb1
     hostname: cka-mongodb2
@@ -28,7 +28,7 @@ services:
       - /home/cka-mongodb/keyfile:/home/keyfile
       - /home/cka-mongodb/mongo2/data:/data/db
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
-  mongo3:
+  cka-mongodb3:
     depends_on:
       - cka-mongodb1
       - cka-mongodb2
