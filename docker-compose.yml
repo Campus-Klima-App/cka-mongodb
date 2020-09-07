@@ -43,5 +43,4 @@ services:
     volumes:
       - /home/cka-mongodb/keyfile:/home/keyfile
       - /home/cka-mongodb/mongo3/data:/data/db
-      - /home/cka-mongodb/cka-Mongodb/initiate.js:/home/initiate.js
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
