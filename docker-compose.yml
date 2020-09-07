@@ -1,8 +1,8 @@
 version: "3"
 services:
   mongo1:
-    hostname: mongo1
-    container_name: mongo1
+    hostname: cka-mongodb1
+    container_name: cka-mongodb1
     image: cka-mongodb:1.1
     expose:
       - 27017
@@ -15,9 +15,9 @@ services:
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
   mongo2:
     depends_on:
-      - mongo1
-    hostname: mongo2
-    container_name: mongo2
+      - cka-mongodb1
+    hostname: cka-mongodb2
+    container_name: cka-mongodb2
     image: cka-mongodb:1.1
     expose:
       - 27017
@@ -30,10 +30,10 @@ services:
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
   mongo3:
     depends_on:
-      - mongo1
-      - mongo2
-    hostname: mongo3
-    container_name: mongo3
+      - cka-mongodb1
+      - cka-mongodb2
+    hostname: cka-mongodb3
+    container_name: cka-mongodb3
     image: cka-mongodb:1.1
     expose:
       - 27017
@@ -44,5 +44,4 @@ services:
       - /home/cka-mongodb/keyfile:/home/keyfile
       - /home/cka-mongodb/mongo3/data:/data/db
       - /home/cka-mongodb/cka-Mongodb/initiate.js:/home/initiate.js
-      - /home/cka-mongodb/cka-Mongodb/user.js:/home/user.js
     entrypoint: [ "/usr/bin/mongod", "--keyFile", "/home/keyfile" , "--bind_ip_all", "--replSet", "rs1" ]
